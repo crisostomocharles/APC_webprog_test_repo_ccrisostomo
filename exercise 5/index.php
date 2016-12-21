@@ -63,7 +63,7 @@ function delete_id(id)
     <?php
  $sql_query="SELECT * FROM sample";
  $result_set=mysqli_query($con, $sql_query);
- while($row=mysqli_fetch_row($result_set))
+  while($row=mysqli_fetch_row($result_set))
  {
   ?>
         <tr>

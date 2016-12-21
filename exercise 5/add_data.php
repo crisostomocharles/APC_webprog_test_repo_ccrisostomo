@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
 include_once 'dbconfig.php';
 if(isset($_POST['btn-save']))
@@ -11,19 +10,18 @@ if(isset($_POST['btn-save']))
  $comment = $_POST['comment'];
  $gender = $_POST['gender'];
  $cellphone= $_POST['cellphone'];
- // variables for input data
+ //-----------------------------
  
  // sql query for inserting data into database
  
         $sql_query = "INSERT INTO sample(name,nickname, email, address, comment, gender, cellphone) VALUES('$name','$nickname','$email','$address','$comment','$gender','$cellphone')";
  mysqli_query($con, $sql_query);
-        
  
 }
-// define variables and set to empty values
-$nameErr = $emailErr = $genderErr =  $addressErr = $cellphoneErr= "";
-$name = $nickname = $email = $cellphone = $gender = $comment = "";
 
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr  = $nicknameErr = $addressErr = $cellphoneErr = "";
+$name = $email = $gender = $comment = $nickname = $address = $cellphone = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
     $nameErr = "Name is required";
@@ -31,7 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = test_input($_POST["name"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed"; 
+      $nameErr = "Only letters and numbers allowed"; 
+    }
+  }
+  
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["nickname"])) {
+    $nicknameErr = "Nickname is required";
+  } else {
+    $nickname = test_input($_POST["nickname"]);
+    
+    if (!preg_match("/^[a-zA-Z ]*$/",$nickname)) {
+      $nicknameErr = "Only letters and white space allowed"; 
     }
   }
   
@@ -39,41 +48,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $emailErr = "Email is required";
   } else {
     $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
+    
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $emailErr = "Invalid email format"; 
     }
   }
-  
-     if (empty($_POST["nickname"])) {
-    $nickname = "";
+    if (empty($_POST["address"])) {
+    $address = "";
   } else {
-    $nickname = test_input($_POST["nickname"]);
+    $address = test_input($_POST["address"]);
   }
-
- if (empty($_POST["cellphone"])) {
-    $cellphoneErr= "Cellphone number is required.";
-  } else {
-    $cellphone = test_input($_POST["cellphone"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[0-9 ]*$/",$cellphone)) {
-      $cellphoneErr = "Only letters and white space allowed"; 
-    }
-  }
-  
+    
   if (empty($_POST["comment"])) {
     $comment = "";
   } else {
     $comment = test_input($_POST["comment"]);
   }
-
   if (empty($_POST["gender"])) {
     $genderErr = "Gender is required";
   } else {
     $gender = test_input($_POST["gender"]);
   }
+   
+     $cellphone = $_POST['cellphone'];
+if(!empty($cellphone))
+{
+    if(preg_match('/^\d{10}$/',$cellphone))
+    {
+		$cellphoneErr ="Cellphone number is required";
+        $cellphone = '0' . $cellphone;
+      
+    }
+    else 
+    {
+      echo '';
+    }
 }
-
+else 
+{
+  echo ' ';
+}
+}
+}
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
@@ -88,18 +104,17 @@ function test_input($data) {
 	color:red;
 }
 </style>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>My database</title>
+<title>Add</title>
 <link rel="stylesheet" href="style.css" type="text/css" />
 <div id="header">
 
     <label>Adding an information in the Database<a href="http://cleartuts.blogspot.com" target="_blank"></a></label>
 </div><br> 
- <div id="content"><center><a href="index.php"><-----back to main page</a></center><br>
+ <div id="content"><center><a href="index.php">back to main page</a></center><br>
 
 
  <div id="content" align="center">
@@ -139,10 +154,10 @@ function test_input($data) {
 
 <div class="output" align="center">
 <?php
-echo "<h2>Thank you for filling up the form:</h2>";
-echo "Hello! " . $nickname;
+echo "<h2>You're all set</h2>";
+echo "How are you?" . $nickname;
 echo "<br>";
-echo "This is your information:";
+echo "This is what you insert into my database:";
 echo "<br>";
 echo $name;
 echo "<br>";
@@ -162,3 +177,4 @@ echo $comment;
 
 </body>
 </html>	
+
