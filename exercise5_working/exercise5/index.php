@@ -78,7 +78,7 @@ function delete_id(id)
 <center>
 
  <header>
-    <a href="mypage.php"><font color = "black">You may add your data here</a></font>
+    <a href="add_data.php"><font color = "black">You may add your data here</a></font>
     <br>
     <br>
     <br>
