@@ -1,7 +1,6 @@
 <?php
 include_once 'dbconfig.php';
 include 'mypage4.php';
-
 // delete condition
 if(isset($_GET['delete_id']))
 {
@@ -11,7 +10,6 @@ if(isset($_GET['delete_id']))
 }
 // delete condition
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,10 +50,8 @@ if(isset($_GET['delete_id']))
         padding: 5px;
     }
 </style>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>FORM</title>
-
 <script type="text/javascript">
 function edt_id(id)
 {
@@ -73,10 +69,8 @@ function delete_id(id)
 }
 </script>
 </head>
-
 <body>
 <center>
-
  <header>
     <a href="add_data.php"><font color = "black">You may add your data here</a></font>
     <br>
@@ -91,7 +85,6 @@ function delete_id(id)
     <th><font size ="4">Cellphone Number</th></font>
     <th><font size ="4">Comment</th></font>
   </header>
-
     <th colspan="2"><font size="4">Operations</th></font>
     
     
@@ -132,7 +125,6 @@ function delete_id(id)
 <br>
 <br>
 <br>
-
 </center>
 </body>
 </html>

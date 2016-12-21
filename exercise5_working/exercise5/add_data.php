@@ -17,7 +17,6 @@ $sql_query = "INSERT INTO users(name, nickname, email, home, gender, number, com
 mysqli_query($link, $sql_query);
 }
 ?>
-
 <html>
 <head>
 <style>
@@ -86,20 +85,15 @@ body{
 </style>
 </head>
 <body>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>ADD YOUR DATA</title>
-
 <center>
-
 <div id="header">
  <div id="content">
     <label><font color = "black" font face = "Lucida Calligraphy">Please fill out the form.<font size = "28"></label>
     </div>
 </div>
-
 <br> 
-
 <div id="body">
  <div id="content">
     <form method="post">
