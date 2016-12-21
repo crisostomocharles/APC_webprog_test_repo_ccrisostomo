@@ -17,11 +17,34 @@ $sql_query = "INSERT INTO users(name, nickname, email, home, gender, number, com
 mysqli_query($link, $sql_query);
 }
 ?>
-
 <html>
 <head>
 <style>
-
+body{
+        background-color: #CFD8DC;
+    }
+    h1 {
+    color: Red;
+    text-align: center;
+    }
+    
+    #ha{
+        text-align:center;
+        font-family:times new roman;
+        font-size: 20pt;
+        color: black; 
+    }
+    
+    #form{
+        font-size: 16pt;
+        color:rgb(0, 0, 0);
+        font-family: Times New Roman;
+    }
+    
+    #btn {
+        font-family: Times New Roman;
+        font-size:20px;
+    }
     img.upper{
         position:center;
         width:200px;
@@ -62,20 +85,15 @@ mysqli_query($link, $sql_query);
 </style>
 </head>
 <body>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>ADD YOUR DATA</title>
-
 <center>
-
 <div id="header">
  <div id="content">
     <label><font color = "black" font face = "Lucida Calligraphy">Please fill out the form.<font size = "28"></label>
     </div>
 </div>
-
 <br> 
-
 <div id="body">
  <div id="content">
     <form method="post">
@@ -85,38 +103,44 @@ mysqli_query($link, $sql_query);
     </tr>
     
     <tr>
-    <td><input type="text" name="name" placeholder="Name" required /><br><br></td>
+    <td>
+    Name: <input type="text" name="name" placeholder="Name" required /><br><br></td>
     </tr>
     
     <tr>
-    <td><input type="text" name="nickname" placeholder="Nickname" required /><br><br></td>
+    <td>
+    Nickname:<input type="text" name="nickname" placeholder="Nickname" required /><br><br></td>
     </tr>
     
     <tr>
-    <td><input type="text" name="email" placeholder="Email" required /><br><br></td>
+    <td>
+    Email:<input type="text" name="email" placeholder="Email" required /><br><br></td>
     </tr>
     
     <tr>
-    <td><input type="text" name="home" placeholder="Home Address" required /><br><br></td>
+    <td>
+    Home Address:<input type="text" name="home" placeholder="Home Address" required /><br><br></td>
     </tr>
     
     <tr>
-    <td><input type="text" name="gender" placeholder="Gender" required /><br><br></td>
+    <td>
+    Gender:<input type="text" name="gender" placeholder="Gender" required /><br><br></td>
     </tr>
     
     <tr>
-    <td><input type="text" name="number" placeholder="Cellphone number" required/><br><br></td>
+    <td>
+    Number: <input type="text" name="number" placeholder="Cellphone number" required/><br><br></td>
     </tr>
     
     <tr>
-    <td><input type="text" name="comment" placeholder="Comment" required /><br><br></td>
+    <td>
+    Comment: <input type="text" name="comment" placeholder="Comment" required /><br><br></td>
     </tr>
-    
-    <tr>
-    <td><button type="submit" name="btn-save"><strong>SAVE</strong></button></td>
-    </tr>
-    
     </table>
+    <center>
+    <button type="submit" name="btn-save"><strong>SAVE</strong></button>
+    
+    
     </form>
     </div>
 </div>
